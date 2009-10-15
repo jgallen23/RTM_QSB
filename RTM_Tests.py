@@ -112,9 +112,9 @@ def main():
 		pass
 	
 	def doAuth(the_frob):
-		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob
+		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob+'permswrite'
 		hashed_sig= createMD5(the_sig)
-		url=auth_url+'api_key='+api_key+'&perms=delete&frob='+the_frob+'&api_sig='+(str(hashed_sig))
+		url=auth_url+'api_key='+api_key+'&perms=write&frob='+the_frob+'&api_sig='+(str(hashed_sig))
 		
 		webbrowser.open(url)
 		print 'Website Opened:'
@@ -165,6 +165,7 @@ def main():
 			the_token=doAuth(the_frob)
 			if the_token != 0:
 				print 'Sucess'
+				print 'Token: '+the_token
 			else:
 				print 'Failure'
 			
