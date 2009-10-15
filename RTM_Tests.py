@@ -56,26 +56,20 @@ def main():
 		url=api_url+'method='+method+'&api_key='+api_key+'&auth_token='+token
 
 		page = urllib.urlopen(url)
-		
-		#Seperate the variable from the file. Used to write the Resp to disk. Used for development. May not need this.
-		the_resp=ET.parse(page)
-		tree=the_resp.getroot()
-		
+
 		#Parse the XML
-		#the_resp=ET.parse(page).getroot()
+		the_resp=ET.parse(page).getroot()
 		
 		#Grab the response message
 		var = 0	
-		for element in tree.findall('token/'):
+		for element in the_resp.findall('token/'):
 			var = element.text
 		
-		#Write the response to the local XML file. Used for Dev only.	
-		the_resp.write(xml_resp)
-		
+		#return the token, or false if there was an error (usually due to bad token)
 		return var
 		pass
 	
-	#Function to write to the Plist.  Only sets the token for now.  Could add in more parameters later.
+	#Function to write to the plist.  Only sets the token for now.  Could add in more parameters later.
 	def writePlist(token):
 		mydict = {}
 		mydict['Token']=token
@@ -150,23 +144,95 @@ def main():
 		return var
 		pass
 	
-	#define the method to be used, use rtm.test.echo for testing	
-	#method = 'rtm.test.echo'
-	
+	def SendTask(token, new_task):
+		#need to create timeline.
+		timeline=createTimeline()
+		
+		method ='rtm.tasks.add'
+		
+		#sets the parse value to 1.  With it set to 1, smart-add is in effect.
+		doParse = '1'
+		
+		the_sig=api_secret+'api_key'+api_key+'method'+method+'name'+new_task+'parse'+doParse+'timeline'+timeline
+		hashed_sig=creadeMD5(the_sig)
+		
+		url = api_url+'method'+method+'&api_key='+api_key+'&timeline='+timeline+'&name='+new_task+'&parse='+doParse+'&api_sig='+(str(hashed_sig))		
+		
+		page = urllib.urlopen(url)
+
+		#Seperate the variable from the file. Used to write the Resp to disk. Used for development. May not need this.
+		the_resp=ET.parse(page)
+		tree=the_resp.getroot()
+
+		#Parse the XML
+		#the_resp=ET.parse(page).getroot()
+
+		#Grab the response message
+		var = 0	
+		for element in tree.findall('token/'):
+			var = element.text
+
+		#Write the response to the local XML file. Used for Dev only.	
+		the_resp.write(xml_resp)
+
+		return var
+		pass
+
+	#function to create timeline for sendTask function
+	def createTimeline():
+		method='rtm.timelines.create'
+		
+		url=api_url+'method='+method+'&api_key='+api_key
+		page = urllib.urlopen(url)
+
+		#Seperate the variable from the file. Used to write the Resp to disk. Used for development. May not need this.
+		the_resp=ET.parse(page)
+		tree=the_resp.getroot()
+
+		#Parse the XML
+		#the_resp=ET.parse(page).getroot()
+
+		#Grab the response message
+		var = 0	
+		for element in tree.findall('timeline/'):
+			var = element.text
+
+		#Write the response to the local XML file. Used for Dev only.	
+		the_resp.write(xml_resp)
+
+		return var
+		pass
+		
+		
 	#Read the plist, grab the Token (using test string for dev)
 	token=getLocalToken()
 	
-	#see if token var contains actual value
+	#see if token var contains actual value (ie, if file exists. Need to add stuff for if file exists, but token is expired)
 	if token != 0:
+		
 		#call the URL, pass the resp back to variable result
 		result = checkToken(str(token))
 		if result == 0:
 			the_frob=getFrob()
 			the_token=doAuth(the_frob)
 			if the_token != 0:
+				
+				#Token came back successfully.  Display success message for Dev
 				print 'Sucess'
 				print 'Token: '+the_token
+				
+				#Store token in plist
+				writePlist(the_token)	
+				
+				#Define new_task as a temp value.  Will be replaced with user interaction
+				new_task = 'Do Something Today'
+				
+				#Call SendTask function to create new task
+				SendTask(the_token, new_task)
 			else:
+				
+				#Token did not come back succesfully
+				
 				print 'Failure'
 			
 
