@@ -49,24 +49,15 @@ def main():
 			print 'No Token Found'
 			return 0
 	
-	#Function to call specified URL, get response
+	#Check to see if the Token is valid
 	def checkToken(token):
 		method = 'rtm.auth.checkToken'
 		
 		url=api_url+'method='+method+'&api_key='+api_key+'&auth_token='+token
-
-		page = urllib.urlopen(url)
-
-		#Parse the XML
-		the_resp=ET.parse(page).getroot()
 		
-		#Grab the response message
-		var = 0	
-		for element in the_resp.findall('token/'):
-			var = element.text
+		token = ParseURL(url, 'token/')
+		return token
 		
-		#return the token, or false if there was an error (usually due to bad token)
-		return var
 		pass
 	
 	#Function to write to the plist.  Only sets the token for now.  Could add in more parameters later.
@@ -87,15 +78,9 @@ def main():
 		
 		url=api_url+'method='+method+'&api_key='+api_key+'&api_sig='+(str(hashed_sig))
 		
-		page = urllib.urlopen(url)
+		the_frob=ParseURL(url, 'frob/')
+		return the_frob
 		
-		the_resp=ET.parse(page).getroot()
-		
-		var = 0	
-		for element in the_resp.findall('frob/'):
-			var = element.text
-		
-		return var
 		pass
 	
 	
@@ -124,24 +109,9 @@ def main():
 		
 		url=api_url+'method='+method+'&api_key='+api_key+'&frob='+the_frob+'&api_sig='+(str(hashed_sig))
 		
-		page = urllib.urlopen(url)
-
-		#Seperate the variable from the file. Used to write the Resp to disk. Used for development. May not need this.
-		the_resp=ET.parse(page)
-		tree=the_resp.getroot()
-
-		#Parse the XML
-		#the_resp=ET.parse(page).getroot()
-
-		#Grab the response message
-		var = 0	
-		for element in tree.findall('token/'):
-			var = element.text
-
-		#Write the response to the local XML file. Used for Dev only.	
-		the_resp.write(xml_resp)
-
-		return var
+		token = ParseURL(url, 'token/')
+		return token
+		
 		pass
 	
 	def SendTask(token, new_task):
@@ -158,23 +128,7 @@ def main():
 		
 		url = api_url+'method'+method+'&api_key='+api_key+'&timeline='+timeline+'&name='+new_task+'&parse='+doParse+'&api_sig='+(str(hashed_sig))		
 		
-		page = urllib.urlopen(url)
-
-		#Seperate the variable from the file. Used to write the Resp to disk. Used for development. May not need this.
-		the_resp=ET.parse(page)
-		tree=the_resp.getroot()
-
-		#Parse the XML
-		#the_resp=ET.parse(page).getroot()
-
-		#Grab the response message
-		var = 0	
-		for element in tree.findall('token/'):
-			var = element.text
-
-		#Write the response to the local XML file. Used for Dev only.	
-		the_resp.write(xml_resp)
-
+		ParseURL(url, 0)
 		return var
 		pass
 
@@ -183,6 +137,15 @@ def main():
 		method='rtm.timelines.create'
 		
 		url=api_url+'method='+method+'&api_key='+api_key
+		
+		#send url to the parser
+		timeline = ParseURL(url, 'timeline/')
+		return timeline
+		pass
+	
+	#Function to call and parse the URL.
+	def ParseURL(url, ItemNeeded):
+		
 		page = urllib.urlopen(url)
 
 		#Seperate the variable from the file. Used to write the Resp to disk. Used for development. May not need this.
@@ -191,11 +154,14 @@ def main():
 
 		#Parse the XML
 		#the_resp=ET.parse(page).getroot()
-
-		#Grab the response message
+		
 		var = 0	
-		for element in tree.findall('timeline/'):
-			var = element.text
+		if ItemNeeded !=0:
+			#essentially, is this from the sendtask method.  This sucks.  Figure out a better way to do this.
+			
+			#Grab the response message	
+			for element in tree.findall(ItemNeeded):
+				var = element.text
 
 		#Write the response to the local XML file. Used for Dev only.	
 		the_resp.write(xml_resp)
@@ -203,38 +169,52 @@ def main():
 		return var
 		pass
 		
-		
 	#Read the plist, grab the Token (using test string for dev)
 	token=getLocalToken()
 	
-	#see if token var contains actual value (ie, if file exists. Need to add stuff for if file exists, but token is expired)
 	if token != 0:
+		#There is a token, need to check to make sure it isn't expired.
 		
-		#call the URL, pass the resp back to variable result
+		#Check token't validity
 		result = checkToken(str(token))
 		if result == 0:
+			# Token came back false, token is expired.
+			
+			#Need to get a frob to be used to obtain a new token
 			the_frob=getFrob()
+			
+			#use the frob to obtain a new token
 			the_token=doAuth(the_frob)
 			if the_token != 0:
-				
 				#Token came back successfully.  Display success message for Dev
+				
 				print 'Sucess'
 				print 'Token: '+the_token
 				
 				#Store token in plist
-				writePlist(the_token)	
+				#writePlist(the_token)	
 				
 				#Define new_task as a temp value.  Will be replaced with user interaction
-				new_task = 'Do Something Today'
+				#new_task = 'Do Something Today'
 				
 				#Call SendTask function to create new task
-				SendTask(the_token, new_task)
+				#SendTask(the_token, new_task)
 			else:
-				
 				#Token did not come back succesfully
 				
 				print 'Failure'
+		else:	
+			#Token came back positive.  Token is good, and can be used to send new task to RTM.
 			
+			#temp printout for dev purposes
+			print 'Token ok.  App authenticated.'
+			
+			
+			#Define new_task as a temp value.  Will be replaced with user interaction
+			#new_task = 'Do Something Today'
+			
+			#Call SendTask function to create new task
+			#SendTask(the_token, new_task)
 
 if __name__ == '__main__':
 	main()
