@@ -1,1 +1,1 @@
-<rsp stat="ok"><api_key>60a9369798aa92cc5cc291b2280422f1</api_key><method>rtm.test.echo</method><test>chili</test></rsp>
+<rsp stat="fail"><err code="96" msg="Invalid signature" /></rsp>
