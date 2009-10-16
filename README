@@ -27,3 +27,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 Eventually, this will become (hopefully) a Remember The Milk plugin for Google Quick Searchbox.
 
 For right now, it's just a way for me to get the hang of API calls in Python.
+
+TODO:
+	Get it to work.  I feel like this is my main priority.

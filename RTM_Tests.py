@@ -215,6 +215,32 @@ def main():
 			
 			#Call SendTask function to create new task
 			#SendTask(the_token, new_task)
+	else:
+		#There is no token. We need to run through the auth process and save a new plist
+		
+		#Need to get a frob to be used to obtain a new token
+		the_frob=getFrob()
+			
+		#use the frob to obtain a new token
+		the_token=doAuth(the_frob)
+		if the_token != 0:
+			#Token came back successfully.  Display success message for Dev
+				
+			print 'Sucess'
+			print 'Token: '+the_token
+				
+			#Store token in plist
+			#writePlist(the_token)	
+				
+			#Define new_task as a temp value.  Will be replaced with user interaction
+			#new_task = 'Do Something Today'
+				
+			#Call SendTask function to create new task
+			#SendTask(the_token, new_task)
+		else:
+			#Token did not come back succesfully
+				
+			print 'Failure'
 
 if __name__ == '__main__':
 	main()
