@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 
+import sys
+
 # import urllib for url calling
 import urllib
 
@@ -24,6 +26,15 @@ import time
 
 def main():
 	
+	#Check to make sure a task is being passed through.  This is for command line testing.  Need to figure out how to pass
+	#a task via QSB Note that at least on the command line, special characters must be escaped.  Will this happen with QSB?
+	
+	the_task=sys.argv[1:]
+	if not the_task:
+		print 'Usage: rtm_tests.py <task>'
+		return 1
+	the_task= " ".join(the_task)
+	
 	# Define some main variables. Don't change these.
 	api_url='http://api.rememberthemilk.com/services/rest/?'
 	auth_url='http://www.rememberthemilk.com/services/auth/?'
@@ -32,6 +43,7 @@ def main():
 	the_plist='~/Library/Preferences/com.google.RTM-QSB.plist'
 	the_plist=NSString.stringByExpandingTildeInPath(the_plist)
 	m=hashlib.md5()
+	
 	
 	# Get the location of the response XML file.  May not need this.
 	xml_resp = os.path.abspath(__file__)
@@ -72,6 +84,7 @@ def main():
 	def getFrob():
 		method = 'rtm.auth.getFrob'
 		
+		the_frob=0
 		the_sig = api_secret+'api_key'+api_key+'method'+method
 
 		hashed_sig= createMD5(the_sig)
@@ -111,7 +124,7 @@ def main():
 		method = 'rtm.auth.getToken'
 
 		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob+'method'+method
-
+		
 		hashed_sig= createMD5(the_sig)
 		
 		url=api_url+'method='+method+'&api_key='+api_key+'&frob='+the_frob+'&api_sig='+(str(hashed_sig))
