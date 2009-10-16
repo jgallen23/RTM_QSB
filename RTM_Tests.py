@@ -96,11 +96,18 @@ def main():
 		url=auth_url+'api_key='+api_key+'&perms=write&frob='+the_frob+'&api_sig='+(str(hashed_sig))
 		
 		webbrowser.open(url)
+		
+		# For dev: Print out the full URL opened, for error checking.
 		print 'Website Opened:'
 		print url
+		
 		#sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.  This needs to be implimented better.
 		time.sleep(30)
 		
+		#Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this.
+		
+		
+		#Start to get the actual token that will be stored in our plist.
 		method = 'rtm.auth.getToken'
 
 		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob+'method'+method
