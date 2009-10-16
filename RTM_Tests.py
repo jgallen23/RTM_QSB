@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-
+#This is (I think) only used for command line development.  This will probably go away once this gets migrated to QSB
 import sys
 
 # import urllib for url calling
@@ -228,13 +228,9 @@ def main():
 			
 			#temp printout for dev purposes
 			print 'Token ok.  App authenticated.'
-			
-			
-			#Define new_task as a temp value.  Will be replaced with user interaction
-			#new_task = 'Do Something Today'
-			
+						
 			#Call SendTask function to create new task
-			#SendTask(the_token, new_task)
+			#SendTask(the_token, the_task)
 	else:
 		#There is no token. We need to run through the auth process and save a new plist
 		
@@ -252,11 +248,8 @@ def main():
 			#Store token in plist
 			#writePlist(the_token)	
 				
-			#Define new_task as a temp value.  Will be replaced with user interaction
-			#new_task = 'Do Something Today'
-				
 			#Call SendTask function to create new task
-			#SendTask(the_token, new_task)
+			#SendTask(the_token, the_task)
 		else:
 			#Token did not come back succesfully
 				
