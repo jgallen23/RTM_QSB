@@ -44,6 +44,7 @@ def main():
 	the_plist=NSString.stringByExpandingTildeInPath(the_plist)
 	m=hashlib.md5()
 	auth=1
+	the_token=0
 	
 	# Get the location of the response XML file.  May not need this.
 	xml_resp = os.path.abspath(__file__)
@@ -54,28 +55,28 @@ def main():
 	def getLocalToken():
 		if os.path.exists(the_plist):
 			mydict = NSDictionary.dictionaryWithContentsOfFile_(the_plist)
-			token = mydict['Token']
-			return token
+			the_token = mydict['Token']
+			return the_token
 			pass
 		else:
 			print 'No Token Found'
 			return 0
 	
 	#Check to see if the Token is valid
-	def checkToken(token):
+	def checkToken(the_token):
 		method = 'rtm.auth.checkToken'
 		
-		url=api_url+'method='+method+'&api_key='+api_key+'&auth_token='+token
+		url=api_url+'method='+method+'&api_key='+api_key+'&auth_token='+the_token
 		
-		token = ParseURL(url, 'token/')
-		return token
+		the_token = ParseURL(url, 'token/')
+		return the_token
 		
 		pass
 	
 	#Function to write to the plist.  Only sets the token for now.  Could add in more parameters later.
-	def writePlist(token):
+	def writePlist(the_token):
 		mydict = {}
-		mydict['Token']=token
+		mydict['Token']=the_token
 		NSDictionary.dictionaryWithDictionary_(mydict).writeToFile_atomically_(the_plist, True)
 		pass
 
@@ -142,8 +143,8 @@ def main():
 		
 		url=api_url+'method='+method+'&api_key='+api_key+'&frob='+the_frob+'&api_sig='+(str(hashed_sig))
 		
-		token = ParseURL(url, 'token/')
-		return token
+		the_token = ParseURL(url, 'token/')
+		return the_token
 		pass
 	
 	def getAuth(the_frob):
@@ -160,7 +161,7 @@ def main():
 		
 		pass
 	
-	def SendTask(token, new_task):
+	def SendTask(the_token, new_task):
 		#need to create timeline.
 		timeline=createTimeline()
 		
@@ -216,13 +217,14 @@ def main():
 		pass
 		
 	#Read the plist, grab the Token (using test string for dev)
-	token=getLocalToken()
+	the_token=getLocalToken()
+	the_token=(str(the_token))
 	
-	if token != 0:
+	if the_token != 0:
 		#There is a token, need to check to make sure it isn't expired.
 		
 		#Check token't validity
-		result = checkToken(str(token))
+		result = checkToken(the_token)
 		if result == 0:
 			# Token came back false, token is expired.
 			auth=doAuth()
@@ -231,6 +233,8 @@ def main():
 		auth=doAuth(the_frob)
 
 	if auth == 1:
+		#Auth was sucessfull, should have a token to use.
+		
 		#Call SendTask function to create new task
 		#SendTask(the_token, the_task)
 		pass
