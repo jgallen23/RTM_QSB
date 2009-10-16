@@ -43,7 +43,7 @@ def main():
 	the_plist='~/Library/Preferences/com.google.RTM-QSB.plist'
 	the_plist=NSString.stringByExpandingTildeInPath(the_plist)
 	m=hashlib.md5()
-	
+	auth=1
 	
 	# Get the location of the response XML file.  May not need this.
 	xml_resp = os.path.abspath(__file__)
@@ -103,24 +103,37 @@ def main():
 		return the_hash
 		pass
 	
-	def doAuth(the_frob):
-		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob+'permswrite'
-		hashed_sig= createMD5(the_sig)
-		url=auth_url+'api_key='+api_key+'&perms=write&frob='+the_frob+'&api_sig='+(str(hashed_sig))
+	def doAuth():
+		#Need to get a frob to be used to obtain a new token
+		the_frob=getFrob()
 		
-		webbrowser.open(url)
-		
-		# For dev: Print out the full URL opened, for error checking.
-		print 'Website Opened:'
-		print url
+		#Get the user to give their auth via the RTM website
+		getAuth(the_frob)
 		
 		#sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.  This needs to be implimented better.
 		time.sleep(30)
-		
 		#Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this.
 		
-		
 		#Start to get the actual token that will be stored in our plist.
+		the_token=getRemoteToken(the_frob)
+		
+		if the_token != 0:
+			#Token came back successfully.  Display success message for Dev
+			
+			print 'Sucess'
+			print 'Token: '+the_token
+			
+			#Store token in plist
+			#writePlist(the_token)
+			return 1
+		else:
+			#Token did not come back succesfully Should maybe add some error handling here
+			
+			print 'Failure'
+			return 0
+		pass
+	
+	def getRemoteToken(the_frob):
 		method = 'rtm.auth.getToken'
 
 		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob+'method'+method
@@ -131,6 +144,19 @@ def main():
 		
 		token = ParseURL(url, 'token/')
 		return token
+		pass
+	
+	def getAuth(the_frob):
+		
+		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob+'permswrite'
+		hashed_sig= createMD5(the_sig)
+		url=auth_url+'api_key='+api_key+'&perms=write&frob='+the_frob+'&api_sig='+(str(hashed_sig))
+		
+		webbrowser.open(url)
+		
+		# For dev: Print out the full URL opened, for error checking.
+		print 'Website Opened:'
+		print url
 		
 		pass
 	
@@ -199,61 +225,19 @@ def main():
 		result = checkToken(str(token))
 		if result == 0:
 			# Token came back false, token is expired.
-			
-			#Need to get a frob to be used to obtain a new token
-			the_frob=getFrob()
-			
-			#use the frob to obtain a new token
-			the_token=doAuth(the_frob)
-			if the_token != 0:
-				#Token came back successfully.  Display success message for Dev
-				
-				print 'Sucess'
-				print 'Token: '+the_token
-				
-				#Store token in plist
-				#writePlist(the_token)	
-				
-				#Define new_task as a temp value.  Will be replaced with user interaction
-				#new_task = 'Do Something Today'
-				
-				#Call SendTask function to create new task
-				#SendTask(the_token, new_task)
-			else:
-				#Token did not come back succesfully
-				
-				print 'Failure'
-		else:	
-			#Token came back positive.  Token is good, and can be used to send new task to RTM.
-			
-			#temp printout for dev purposes
-			print 'Token ok.  App authenticated.'
-						
-			#Call SendTask function to create new task
-			#SendTask(the_token, the_task)
+			auth=doAuth()
 	else:
 		#There is no token. We need to run through the auth process and save a new plist
-		
-		#Need to get a frob to be used to obtain a new token
-		the_frob=getFrob()
-			
-		#use the frob to obtain a new token
-		the_token=doAuth(the_frob)
-		if the_token != 0:
-			#Token came back successfully.  Display success message for Dev
-				
-			print 'Sucess'
-			print 'Token: '+the_token
-				
-			#Store token in plist
-			#writePlist(the_token)	
-				
-			#Call SendTask function to create new task
-			#SendTask(the_token, the_task)
-		else:
-			#Token did not come back succesfully
-				
-			print 'Failure'
+		auth=doAuth(the_frob)
 
+	if auth == 1:
+		#Call SendTask function to create new task
+		#SendTask(the_token, the_task)
+		pass
+	else:
+		#something went wrong. Print a failure message for dev.
+		print 'An error occured during the code.  Auth not sucessfull.'
+		
+		
 if __name__ == '__main__':
 	main()
