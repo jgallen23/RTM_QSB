@@ -40,13 +40,13 @@ def main():
 	auth_url='http://www.rememberthemilk.com/services/auth/?'
 	api_key='60a9369798aa92cc5cc291b2280422f1'
 	api_secret='6fdf8ca0e501715f'
-	the_plist='~/Library/Preferences/com.google.RTM-QSB.plist'
+	the_plist='~/Library/Preferences/com.rememberthemilk.RTM-QSB.plist'
 	the_plist=NSString.stringByExpandingTildeInPath(the_plist)
 	m=hashlib.md5()
 	auth=1
 	the_token=0
 	
-	# Get the location of the response XML file.  May not need this.
+	# Get the location of the response XML file.  Used for dev only.
 	xml_resp = os.path.abspath(__file__)
 	xml_resp = os.path.dirname(xml_resp)
 	xml_resp = os.path.join(xml_resp, 'resp.xml')
@@ -111,27 +111,27 @@ def main():
 		#Get the user to give their auth via the RTM website
 		getAuth(the_frob)
 		
-		#sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.  This needs to be implimented better.
-		time.sleep(30)
-		#Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this.
-		
-		#Start to get the actual token that will be stored in our plist.
-		the_token=getRemoteToken(the_frob)
-		
-		if the_token != 0:
-			#Token came back successfully.  Display success message for Dev
-			
-			print 'Sucess'
-			print 'Token: '+the_token
-			
-			#Store token in plist
-			#writePlist(the_token)
-			return 1
-		else:
-			#Token did not come back succesfully Should maybe add some error handling here
-			
-			print 'Failure'
-			return 0
+		# #sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.  This needs to be implimented better.
+		# 		time.sleep(30)
+		# 		#Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this.
+		# 		
+		# 		#Start to get the actual token that will be stored in our plist.
+		# 		the_token=getRemoteToken(the_frob)
+		# 		
+		# 		if the_token != 0:
+		# 			#Token came back successfully.  Display success message for Dev
+		# 			
+		# 			print 'Sucess'
+		# 			print 'Token: '+the_token
+		# 			
+		# 			#Store token in plist
+		# 			#writePlist(the_token)
+		# 			return 1
+		# 		else:
+		# 			#Token did not come back succesfully Should maybe add some error handling here
+		# 			
+		# 			print 'Failure'
+		# 			return 0
 		pass
 	
 	def getRemoteToken(the_frob):
