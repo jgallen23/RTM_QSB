@@ -26,14 +26,14 @@ import time
 
 def main():
 	
-	#Check to make sure a task is being passed through.  This is for command line testing.  Need to figure out how to pass
-	#a task via QSB Note that at least on the command line, special characters must be escaped.  Will this happen with QSB?
+	#Check to make sure a task is being passed through. As of right now, the only way to do this for QSB is to pass them through an applescript.  Which means special characters will throw errors.
 	
 	the_task=sys.argv[1:]
 	if not the_task:
 		print 'Usage: rtm_tests.py <task>'
 		return 1
 	the_task= " ".join(the_task)
+	print the_task
 	
 	# Define some main variables. Don't change these.
 	api_url='http://api.rememberthemilk.com/services/rest/?'
@@ -149,9 +149,10 @@ def main():
 	
 	def getAuth(the_frob):
 		
+		method = 'rtm.auth.getFrob'
 		the_sig = api_secret+'api_key'+api_key+'frob'+the_frob+'permswrite'
 		hashed_sig= createMD5(the_sig)
-		url=auth_url+'api_key='+api_key+'&perms=write&frob='+the_frob+'&api_sig='+(str(hashed_sig))
+		url=auth_url+'api_key='+api_key+'&frob='+the_frob+'&perms=write&api_sig='+(str(hashed_sig))
 		
 		webbrowser.open(url)
 		
