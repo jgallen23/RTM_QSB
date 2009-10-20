@@ -33,7 +33,6 @@ def main():
 		print 'Usage: rtm_tests.py <task>'
 		return 1
 	the_task= " ".join(the_task)
-	print the_task
 	
 	# Define some main variables. Don't change these.
 	api_url='http://api.rememberthemilk.com/services/rest/?'
