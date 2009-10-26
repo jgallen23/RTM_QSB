@@ -35,7 +35,5 @@ That's it!
 
 # TODO
 
-- <s>Make it faster.  Script crawls right now.</s>
 - Integrate Growl Notifications for sucessfull task posting
-- <s>Consolidate into true python plugin.  Right now, it's just being called by an applescript plugin. - COMING SOON</s>
 - Give back the ability to use the tag / list smart add. - COMING SOON
