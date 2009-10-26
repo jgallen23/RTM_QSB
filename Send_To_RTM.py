@@ -31,7 +31,7 @@ import os
 #Import hashlib for MD5 encoding
 import hashlib
 
-#import time to be used for the pause during auth.  This should be done more gracefully.
+#import time to be used for the pause during auth.	This should be done more gracefully.
 import time
 
 # These are imported by QSB.  Don't change these.
@@ -128,7 +128,7 @@ class Send_To_RTMAction(object):
 			the_token = ParseURL(url, 'auth/token/')
 			return the_token
 
-		#Function to write to the plist.  Only sets the token for now.  Could add in more parameters later.
+		#Function to write to the plist.  Only sets the token for now.	Could add in more parameters later.
 		def writePlist(the_token):
 			mydict = {}
 			mydict['Token']=the_token
@@ -158,7 +158,7 @@ class Send_To_RTMAction(object):
 			#Get the user to give their auth via the RTM website
 			getAuth(the_frob)
 
-			#sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.  This needs to be implimented better.
+			#sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.	 This needs to be implimented better.
 			time.sleep(15)
 			#Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this.
 
@@ -166,7 +166,7 @@ class Send_To_RTMAction(object):
 			the_token=getRemoteToken(the_frob)
 
 			if the_token != 0:
-				#Token came back successfully.  Display success message for Dev
+				#Token came back successfully.	Display success message for Dev
 
 				#print 'Sucess'
 				#print 'Token: '+the_token
@@ -195,7 +195,7 @@ class Send_To_RTMAction(object):
 
 			method = 'rtm.auth.getFrob'
 
-			the_sig = "%sapi_key%sfrob%sthe_frob%spermswrite" % (api_secret, api_key, the_frob)
+			the_sig = "%sapi_key%sfrob%spermswrite" % (api_secret, api_key, the_frob)
 			hashed_sig= createMD5(the_sig)
 
 			url = "%sapi_key=%s&frob=%s&perms=write&api_sig=%s" % (auth_url, api_key, the_frob, hashed_sig)
@@ -216,7 +216,7 @@ class Send_To_RTMAction(object):
 
 			method ='rtm.tasks.add'
 
-			#sets the parse value to 1.  With it set to 1, smart-add is in effect.
+			#sets the parse value to 1.	 With it set to 1, smart-add is in effect.
 			doParse = '1'
 
 			the_sig = "%sapi_key%sauth_token%smethod%sname%sparse%stimeline%s" % (api_secret, api_key, the_token, method, new_task, doParse, timeline)
@@ -252,9 +252,9 @@ class Send_To_RTMAction(object):
 			#Parse the XML
 			the_resp=ET.parse(page).getroot()
 
-			var = 0	
+			var = 0 
 			if ItemNeeded !=0:
-				#essentially, is this from the sendtask method.  This sucks.  Figure out a better way to do this.
+				#essentially, is this from the sendtask method.	 This sucks.  Figure out a better way to do this.
 
 				#Grab the response message	
 				for element in the_resp.findall(ItemNeeded):
@@ -318,20 +318,8 @@ def main():
   if not argv:
 	print 'Usage: Send_To_RTM <query>'
 	return 1
-
-  query = Vermilion.Query(argv[0])
-  search = Send_To_RTMSearch()
-  if not search.IsValidSourceForQuery(Vermilion.Query(argv[0])):
-	print 'Not a valid query'
-	return 1
-  search.PerformSearch(query)
-
-  while query.finished is False:
-	time.sleep(1)
-
-  for result in query.results:
-	print result
-
+  print argv
+	
 
 if __name__ == '__main__':
   sys.exit(main())
