@@ -24,9 +24,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 -----------------------------------------------------------------
 
-Eventually, this will become (hopefully) a Remember The Milk plugin for Google Quick Searchbox.
+The Python section of a Google Quick Searchbox plugin for Remember the Milk.
 
-For right now, it's just a way for me to get the hang of API calls in Python.
+Things to add / change:
 
-TODO:
-	Get it to work.  I feel like this is my main priority.
+- Needs some speed.  The plugin crawls right now.
+- Would like to integrate some kind of Growl notification.  Need to study up on this through Python
+- The script is being called from an applescript in the actual plugin.  This is not ideal, and may be part of the speed issue, since Terminal has to compile the Python code before it can run.  Need to figure out how to pass a string through GQSB into the python plugin.
