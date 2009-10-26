@@ -1,7 +1,7 @@
 // !$*UTF8*$!
 {
 	089C1669FE841209C02AAC07 /* Project object */ = {
-		activeBuildConfigurationName = Debug;
+		activeBuildConfigurationName = Release;
 		activeExecutable = 7F80FAA50F68E62700228142 /* QSB */;
 		activeTarget = 8D5B49AC048680CD000E48DA /* Send_To_RTM */;
 		addToTargets = (
@@ -45,7 +45,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					674,
+					784,
 					20,
 					48,
 					43,
@@ -84,12 +84,14 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 278281781;
-			PBXWorkspaceStateSaveDate = 278281781;
+			PBXPerProjectTemplateStateSaveDate = 278285766;
+			PBXWorkspaceStateSaveDate = 278285766;
 		};
 		perUserProjectItems = {
-			F809BBC410963E3F009CA9A1 /* PBXBookmark */ = F809BBC410963E3F009CA9A1 /* PBXBookmark */;
-			F809BBC510963E3F009CA9A1 /* PBXTextBookmark */ = F809BBC510963E3F009CA9A1 /* PBXTextBookmark */;
+			F809BBC410963E3F009CA9A1 = F809BBC410963E3F009CA9A1 /* PBXBookmark */;
+			F809BBC510963E3F009CA9A1 = F809BBC510963E3F009CA9A1 /* PBXTextBookmark */;
+			F890DF6310964DD70073F5DA /* PBXTextBookmark */ = F890DF6310964DD70073F5DA /* PBXTextBookmark */;
+			F890DF6810964EE20073F5DA /* PBXTextBookmark */ = F890DF6810964EE20073F5DA /* PBXTextBookmark */;
 		};
 		sourceControlManager = 7F80FAA30F68E61D00228142 /* Source Control */;
 		userBuildSettings = {
@@ -161,9 +163,9 @@
 	};
 	8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {852, 1898}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1251, 4914}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1238}";
+			sepNavVisRange = "{0, 1114}";
 		};
 	};
 	8D5B49AC048680CD000E48DA /* Send_To_RTM */ = {
@@ -186,6 +188,26 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 1238;
+		vrLoc = 0;
+	};
+	F890DF6310964DD70073F5DA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */;
+		name = "Send_To_RTM.py: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1169;
+		vrLoc = 9516;
+	};
+	F890DF6810964EE20073F5DA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */;
+		name = "Send_To_RTM.py: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1114;
 		vrLoc = 0;
 	};
 }

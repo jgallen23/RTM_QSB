@@ -30,11 +30,12 @@ That's it!
 
 # Updates
 
+- 10-26-09 (a little later in the day) Released again.  Consolidated into true Python plugin.  Speed issue FIXED
 - 10-26-09 - Released.  Updated with newer, fancier Readme file
 
 # TODO
 
-- Make it faster.  Script crawls right now.
+- <s>Make it faster.  Script crawls right now.</s>
 - Integrate Growl Notifications for sucessfull task posting
-- Consolidate into true python plugin.  Right now, it's just being called by an applescript plugin. - COMING SOON
-- Give back the ability to use the tag / list smart add.  This will come with true python plugin. - COMING SOON
+- <s>Consolidate into true python plugin.  Right now, it's just being called by an applescript plugin. - COMING SOON</s>
+- Give back the ability to use the tag / list smart add. - COMING SOON
