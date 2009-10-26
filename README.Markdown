@@ -2,8 +2,6 @@
 
 A <a href="http://code.google.com/p/qsb-mac">Google Quick Search Box</a> plugin to add new tasks to <a href="http://www.rememberthemilk.com">Remember the Milk</a>
 
-<hr>
-
 # INSTALL
 - Download the latest version from the <a href="http://www.github.com/gfontenot/RTM_QSB/downloads">Downloads section</a>
 - Mount the DMG
@@ -11,8 +9,6 @@ A <a href="http://code.google.com/p/qsb-mac">Google Quick Search Box</a> plugin 
 - Re-start Google Quick Search Box
 
 That's it!
-
-<hr>
 
 # USAGE
 ### Entering a new Task
@@ -32,13 +28,9 @@ That's it!
 - To make a task repeatable, use "*" followed by how often it repeats (eg "Do a daily task *daily")
 - To give the task a time estimate, use "=" followed by the time estimate (eg "A short task takes =5 mins")
 
-<hr>
-
 # Updates
 
 - 10-26-09 - Released.  Updated with newer, fancier Readme file
-
-<hr>
 
 # TODO
 
