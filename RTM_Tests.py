@@ -86,9 +86,6 @@ def main():
 		the_frob=ParseURL(url, 'frob/')
 		
 		return the_frob
-		
-		pass
-	
 	
 	def createMD5(the_string):
 		return hashlib.md5(the_string).hexdigest()
@@ -121,7 +118,6 @@ def main():
 			
 			#print 'Failure'
 			return 0
-		pass
 	
 	def getRemoteToken(the_frob):
 		method = 'rtm.auth.getToken'
@@ -211,7 +207,6 @@ def main():
 	def makeNetSafe(new_task):
 		new_task=new_task.split()
 		return "%20".join(new_task)
-		pass
 		
 	
 	#------------------------------------------------#
