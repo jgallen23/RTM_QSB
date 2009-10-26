@@ -215,25 +215,35 @@ def main():
 	#------------------------------------------------#
 	
 	#Read the plist, grab the Token (using test string for dev)
+	#print "Getting local token"
 	local_token=getLocalToken()
+	#print "local token recieved"
 	
 	if local_token != 0:
 		#There is a token, need to check to make sure it isn't expired.
 		
 		#Check token't validity
+		#print "Checking local token"
 		result = checkToken(local_token)
+		#print "Local token checked"
 		if result == 0:
 			# Token came back false, token is expired.
+			#print "Doing auth"
 			auth=doAuth()
+			#print "Auth done"
 	else:
 		#There is no token. We need to run through the auth process and save a new plist
+		#print "Doing Auth"
 		auth=doAuth()
+		#print "Auth done"
 
 	if auth == 1:
 		#Auth was sucessfull, should have a token to use.
 		
 		#Call SendTask function to create new task
+		#print "Sending task"
 		SendTask(the_task)
+		#print "Task Sent"
 	#else:
 		#something went wrong. Print a failure message for dev.
 		#print 'An error occured during the code.  Auth not sucessfull.'
