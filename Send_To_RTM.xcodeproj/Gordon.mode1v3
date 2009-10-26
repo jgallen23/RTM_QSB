@@ -317,7 +317,7 @@
 							<real>186</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>235 262 1231 916 0 0 1920 1178 </string>
+						<string>235 233 1231 916 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -345,7 +345,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F890DF6810964EE20073F5DA</string>
+										<string>F890DF6B109655D00073F5DA</string>
 										<key>history</key>
 										<array>
 											<string>F809BBC510963E3F009CA9A1</string>
@@ -362,7 +362,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1023, 676}}</string>
 								<key>RubberWindowFrame</key>
-								<string>235 262 1231 916 0 0 1920 1178 </string>
+								<string>235 233 1231 916 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -382,7 +382,7 @@
 								<key>Frame</key>
 								<string>{{0, 681}, {1023, 194}}</string>
 								<key>RubberWindowFrame</key>
-								<string>235 262 1231 916 0 0 1920 1178 </string>
+								<string>235 233 1231 916 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -529,7 +529,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>278286050.04946101</real>
+	<real>278287824.56750602</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -551,7 +551,7 @@
 		<string>/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/Send_To_RTM.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>235 262 1231 916 0 0 1920 1178 </string>
+	<string>235 233 1231 916 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
