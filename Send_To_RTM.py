@@ -79,46 +79,6 @@ except ImportError:
 	  def Finish(self):
 		self.finished = True
 
-CUSTOM_RESULT_VALUE = 'CUSTOM_RESULT_VALUE'
-
-class Send_To_RTMSearch(object):
-  """Send_To_RTM search source.
-
-  This class conforms to the QSB search source protocol by
-  providing the mandatory PerformSearch method and the optional
-  IsValidSourceForQuery method.
-
-  """
-
-  def PerformSearch(self, query):
-	"""Performs the search.
-
-	Args:
-	  query: A Vermilion.Query object containing the user's search query
-	"""
-	results = [];
-	result = {};
-	result[Vermilion.IDENTIFIER] = 'Send_To_RTM://result';
-	result[Vermilion.SNIPPET] = 'So here\'s a bunny with a pancake on it\'s head!';
-	result[Vermilion.IMAGE] = 'Send_To_RTM.png';
-	result[Vermilion.DISPLAY_NAME] = 'Send_To_RTM Result';
-	result[Vermilion.DEFAULT_ACTION] = 'com.yourcompany.action.Send_To_RTM';
-	result[CUSTOM_RESULT_VALUE] = 'http://www.fsinet.or.jp/~sokaisha/rabbit/rabbit.htm';
-	results.append(result);
-	query.SetResults(results)
-	query.Finish()
-
-  def IsValidSourceForQuery(self, query):
-	"""Determines if the search source is willing to handle the query.
-
-	Args:
-	  query: A Vermilion.Query object containing the user's search query
-
-	Returns:
-	  True if our source handles the query
-	"""
-	return True
-	
 class Send_To_RTMAction(object):
   """Send_To_RTM Action
 
