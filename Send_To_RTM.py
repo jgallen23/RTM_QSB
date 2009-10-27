@@ -25,7 +25,7 @@ from xml.etree import ElementTree as ET
 #import NSDictionary and NSString from Cocoa to work with the plist that will hold the token
 from Cocoa import NSDictionary, NSString
 
-#import os to work with paths. Needed to see if file exists, and to write to XML for dev.
+#import os to work with paths. Needed to see if file exists.
 import os
 
 #Import hashlib for MD5 encoding
@@ -94,21 +94,18 @@ class Send_To_RTMAction(object):
 	"""Perform the action"""
 	for result in results:
 		the_task = result[Vermilion.DISPLAY_NAME]
-		
-		# Define some main variables. Don't change these.
+		"""Define some main variables. Don't change these."""
 		api_url='http://api.rememberthemilk.com/services/rest/?'
 		auth_url='http://www.rememberthemilk.com/services/auth/?'
 		api_key='60a9369798aa92cc5cc291b2280422f1'
 		api_secret='6fdf8ca0e501715f'
 		the_plist='~/Library/Preferences/com.rememberthemilk.RTM-QSB.plist'
 		the_plist=NSString.stringByExpandingTildeInPath(the_plist)
+		#xml_resp = '~/Desktop/resp.xml'
+		#xml_resp = NSString.stringByExpandingTildeInPath(xml_resp)
 		auth=1
 		the_token=0
 
-		# Get the location of the response XML file.  Used for dev only.
-		#xml_resp = os.path.abspath(__file__)
-		#xml_resp = os.path.dirname(xml_resp)
-		#xml_resp = os.path.join(xml_resp, 'resp.xml')
 
 
 		def getLocalToken():
@@ -120,7 +117,7 @@ class Send_To_RTMAction(object):
 				#print 'No Token Found'
 				return 0
 
-		#Check to see if the Token is valid
+		"""Check to see if the Token is valid"""
 		def checkToken(the_token):
 			method = 'rtm.auth.checkToken'
 
@@ -218,12 +215,12 @@ class Send_To_RTMAction(object):
 
 			#sets the parse value to 1.	 With it set to 1, smart-add is in effect.
 			doParse = '1'
-
+			
 			the_sig = "%sapi_key%sauth_token%smethod%sname%sparse%stimeline%s" % (api_secret, api_key, the_token, method, new_task, doParse, timeline)
 			hashed_sig=createMD5(the_sig)
-
+			
 			new_task=makeNetSafe(new_task)
-
+			
 			url = "%smethod=%s&api_key=%s&timeline=%s&name=%s&parse=%s&auth_token=%s&api_sig=%s" % (api_url, method, api_key, timeline, new_task, doParse, the_token, hashed_sig)
 			ParseURL(url, 0)
 
@@ -267,8 +264,10 @@ class Send_To_RTMAction(object):
 
 		def makeNetSafe(new_task):
 			new_task=new_task.split()
-			return "%20".join(new_task)
-
+			new_task= "%20".join(new_task)
+			new_task=new_task.split("#")
+			new_task="%23".join(new_task)
+			return new_task
 
 		#------------------------------------------------#
 		#-----------END OF FUNCTIONS---------------------#
@@ -318,7 +317,9 @@ def main():
   if not argv:
 	print 'Usage: Send_To_RTM <query>'
 	return 1
+  argv = " ".join(argv)
   print argv
+  Send_To_RTMAction.Perform(Send_To_RTMAction(), argv)
 	
 
 if __name__ == '__main__':
