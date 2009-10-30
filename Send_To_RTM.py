@@ -4,37 +4,37 @@
 #  Send_To_RTM
 #
 #  Created by Gordon on 10/26/09.
-#  Copyright __MyCompanyName__ 2009. All rights reserved.
+#  Copyright Gordon Fontenot 2009. All rights reserved.
 #
 
-"""A python search source for QSB.
+"""A python quick-add plugin for QSB and Remember the Milk.
 """
 
-__author__ = 'Gordon'
+__author__ = 'Gordon Fontenot'
 
 
-# import urllib for url calling
+"""import urllib for url calling"""
 import urllib
 
-#import webbrowser to open auth webpage if necissary
+"""import webbrowser to open auth webpage if necissary"""
 import webbrowser
 
-#import ElementTree to parse / work with XML
+"""import ElementTree to parse / work with XML"""
 from xml.etree import ElementTree as ET
 
-#import NSDictionary and NSString from Cocoa to work with the plist that will hold the token
+"""import NSDictionary and NSString from Cocoa to work with the plist that will hold the token"""
 from Cocoa import NSDictionary, NSString
 
-#import os to work with paths. Needed to see if file exists.
+"""import os to work with paths. Needed to see if file exists."""
 import os
 
-#Import hashlib for MD5 encoding
+"""Import hashlib for MD5 encoding"""
 import hashlib
 
-#import time to be used for the pause during auth.	This should be done more gracefully.
+"""import time to be used for the pause during auth.	This should be done more gracefully."""
 import time
 
-# These are imported by QSB.  Don't change these.
+"""These are imported by QSB.  Don't change these."""
 import sys
 import thread
 import AppKit
@@ -125,14 +125,14 @@ class Send_To_RTMAction(object):
 			the_token = ParseURL(url, 'auth/token/')
 			return the_token
 
-		#Function to write to the plist.  Only sets the token for now.	Could add in more parameters later.
+		"""Function to write to the plist.  Only sets the token for now.	Could add in more parameters later."""
 		def writePlist(the_token):
 			mydict = {}
 			mydict['Token']=the_token
 			NSDictionary.dictionaryWithDictionary_(mydict).writeToFile_atomically_(the_plist, True)
 
 
-		#get the Frob to begin auth process, because the token came back false
+		"""get the Frob to begin auth process, because the token came back false"""
 		def getFrob():
 			method = 'rtm.auth.getFrob'
 
@@ -149,30 +149,30 @@ class Send_To_RTMAction(object):
 			return hashlib.md5(the_string).hexdigest()
 
 		def doAuth():
-			#Need to get a frob to be used to obtain a new token
+			"""Need to get a frob to be used to obtain a new token"""
 			the_frob=getFrob()
 
-			#Get the user to give their auth via the RTM website
+			"""Get the user to give their auth via the RTM website"""
 			getAuth(the_frob)
 
-			#sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.	 This needs to be implimented better.
+			"""sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.	 This needs to be implimented better."""
 			time.sleep(15)
-			#Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this.
+			"""Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this."""
 
-			#Start to get the actual token that will be stored in our plist.
+			"""Start to get the actual token that will be stored in our plist."""
 			the_token=getRemoteToken(the_frob)
 
 			if the_token != 0:
-				#Token came back successfully.	Display success message for Dev
+				"""Token came back successfully.	Display success message for Dev"""
 
 				#print 'Sucess'
 				#print 'Token: '+the_token
 
-				#Store token in plist
+				"""Store token in plist"""
 				writePlist(the_token)
 				return 1
 			else:
-				#Token did not come back succesfully Should maybe add some error handling here
+				"""Token did not come back succesfully Should maybe add some error handling here"""
 
 				#print 'Failure'
 				return 0
@@ -199,21 +199,21 @@ class Send_To_RTMAction(object):
 
 			webbrowser.open(url)
 
-			# For dev: Print out the full URL opened, for error checking.
+			"""For dev: Print out the full URL opened, for error checking."""
 			#print 'Website Opened:'
 			#print url
 
 		def SendTask(new_task):
 
-			#get the local token (again.  Was having problems with the token not being recognized as global.  This solves the issue)
+			"""get the local token (again.  Was having problems with the token not being recognized as global.  This solves the issue)"""
 			the_token=getLocalToken()
 
-			#need to create timeline.
+			"""need to create timeline."""
 			timeline=createTimeline(the_token)
 
 			method ='rtm.tasks.add'
 
-			#sets the parse value to 1.	 With it set to 1, smart-add is in effect.
+			"""sets the parse value to 1.	 With it set to 1, smart-add is in effect."""
 			doParse = '1'
 			
 			the_sig = "%sapi_key%sauth_token%smethod%sname%sparse%stimeline%s" % (api_secret, api_key, the_token, method, new_task, doParse, timeline)
@@ -222,10 +222,11 @@ class Send_To_RTMAction(object):
 			new_task=makeNetSafe(new_task)
 			
 			url = "%smethod=%s&api_key=%s&timeline=%s&name=%s&parse=%s&auth_token=%s&api_sig=%s" % (api_url, method, api_key, timeline, new_task, doParse, the_token, hashed_sig)
-			ParseURL(url, 0)
+			urllib.urlopen(url)
 
-		#function to create timeline for sendTask function
+		
 		def createTimeline(the_token):
+			"""function to create timeline for sendTask function"""
 			method='rtm.timelines.create'
 
 			the_sig = "%sapi_key%sauth_token%smethod%s" % (api_secret, api_key, the_token, method)
@@ -233,36 +234,36 @@ class Send_To_RTMAction(object):
 
 			url = "%smethod=%s&api_key=%s&auth_token=%s&api_sig=%s" % (api_url, method, api_key, the_token, hashed_sig)
 
-			#send url to the parser
+			"""send url to the parser"""
 			timeline = ParseURL(url, 'timeline/')
 			return timeline
 
-		#Function to call and parse the URL.
+		
 		def ParseURL(url, ItemNeeded):
-
+			"""Function to call and parse the URL."""
 			page = urllib.urlopen(url)
+		
 			#print "Url sent: " + url
-			#Seperate the variable from the file. Used to write the Resp to disk. Used for development. May not need this.
+		
+			"""Seperate the variable from the file. Used to write the Resp to disk. Used for development."""
 			#the_resp=ET.parse(page)
 			#tree=the_resp.getroot()
 
-			#Parse the XML
+			"""Parse the XML"""
 			the_resp=ET.parse(page).getroot()
 
 			var = 0 
-			if ItemNeeded !=0:
-				#essentially, is this from the sendtask method.	 This sucks.  Figure out a better way to do this.
+			"""Grab the response message"""	
+			for element in the_resp.findall(ItemNeeded):
+				var = str(element.text)
 
-				#Grab the response message	
-				for element in the_resp.findall(ItemNeeded):
-					var = str(element.text)
-
-			#Write the response to the local XML file. Used for Dev only.	
+			"""Write the response to the local XML file. Used for Dev only."""	
 			#the_resp.write(xml_resp)
 
 			return var
 
 		def makeNetSafe(new_task):
+			"""Function to change spaces to %20, hash marks to %23."""
 			new_task=new_task.split()
 			new_task= "%20".join(new_task)
 			new_task=new_task.split("#")
@@ -274,38 +275,39 @@ class Send_To_RTMAction(object):
 		#-------BEGIN MAIN FUNCTION----------------------#
 		#------------------------------------------------#
 
-		#Read the plist, grab the Token (using test string for dev)
+		"""Read the plist, grab the Token"""
+		
 		#print "Getting local token"
 		local_token=getLocalToken()
 		#print "local token recieved"
 
 		if local_token != 0:
-			#There is a token, need to check to make sure it isn't expired.
+			"""There is a token, need to check to make sure it isn't expired."""
 
-			#Check token't validity
+			"""Check token't validity"""
 			#print "Checking local token"
 			result = checkToken(local_token)
 			#print "Local token checked"
 			if result == 0:
-				# Token came back false, token is expired.
+				"""Token came back false, token is expired."""
 				#print "Doing auth"
 				auth=doAuth()
 				#print "Auth done"
 		else:
-			#There is no token. We need to run through the auth process and save a new plist
+			"""There is no token. We need to run through the auth process and save a new plist"""
 			#print "Doing Auth"
 			auth=doAuth()
 			#print "Auth done"
 
 		if auth == 1:
-			#Auth was sucessfull, should have a token to use.
+			"""Auth was sucessfull, should have a token to use."""
 
-			#Call SendTask function to create new task
+			"""Call SendTask function to create new task"""
 			#print "Sending task"
 			SendTask(the_task)
 			#print "Task Sent"
 		#else:
-			#something went wrong. Print a failure message for dev.
+			"""something went wrong. Print a failure message for dev."""
 			#print 'An error occured during the code.  Auth not sucessfull.'
 		
 
