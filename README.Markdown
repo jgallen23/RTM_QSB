@@ -45,4 +45,4 @@ That's it!
 
 # TODO
 
-- Integrate Growl Notifications for sucessfull task posting
+- Integrate Growl Notifications for successful task posting
