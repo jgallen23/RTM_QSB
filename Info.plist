@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.GordonFontenot.${PRODUCT_NAME:identifier}</string>
+	<string>com.RTM_QSB.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -24,19 +24,37 @@
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>
-			<string>Send_To_RTMAction</string>
+			<string>New_Task</string>
 			<key>HGSExtensionClass</key>
 			<string>HGSPythonAction</string>
 			<key>HGSExtensionPoint</key>
 			<string>HGSActionsExtensionPoint</string>
 			<key>HGSExtensionIdentifier</key>
-			<string>com.GordonFontenot.action.Send_To_RTM</string>
+			<string>com.RTM_QSB.action.New_RTM_Task</string>
 			<key>HGSActionDirectObjectTypes</key>
 			<array>
-				<string>*</string>
+				<string>text</string>
 			</array>
 			<key>HGSExtensionUserVisibleName</key>
-			<string>Send to RTM</string>
+			<string>New Task in RTM</string>
+		</dict>
+		<dict>
+			<key>HGSPythonModule</key>
+			<string>Send_To_RTM</string>
+			<key>HGSPythonClass</key>
+			<string>New_List</string>
+			<key>HGSExtensionClass</key>
+			<string>HGSPythonAction</string>
+			<key>HGSExtensionPoint</key>
+			<string>HGSActionsExtensionPoint</string>
+			<key>HGSExtensionIdentifier</key>
+			<string>com.RTM_QSB.action.New_RTM_List</string>
+			<key>HGSActionDirectObjectTypes</key>
+			<array>
+				<string>text</string>
+			</array>
+			<key>HGSExtensionUserVisibleName</key>
+			<string>New List in RTM</string>
 		</dict>
 	</array>
 </dict>
