@@ -33,7 +33,7 @@ That's it!
 - To set a priority for a task, use "!" followed by 1, 2, or 3 (eg "Do Something Important !1")
 - To add tags, or specify lists, use "#" followed by the tag / list name (eg "Do something with a #tag #list")
 - To add a location, use "@" followed by the location (eg "Do Something at the @store")
-- To make a task repeatable, use "*" followed by how often it repeats (eg "Do a daily task *daily")
+- To make a task repeatable, use "\*" followed by how often it repeats (eg "Do a daily task \*daily")
 - To give the task a time estimate, use "=" followed by the time estimate (eg "A short task takes =5 mins")
 
 # Updates
