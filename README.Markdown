@@ -17,7 +17,15 @@ That's it!
 - Hit space to enter text mode (not always needed)
 - Type your new task into GQSB
 - Hit TAB or the right arrow to lock the task in as a text selection
-- Select "Send to RTM" from the list provided
+- Select "New Task in RTM" from the list provided (or type "task")
+
+### Quick-adding a new list
+
+- Invoke GQSB with your keyboard command
+- Hit space to enter text mode (not always needed)
+- Type your new list name into GQSB
+- Hit TAB or the right arrow to lock the task in as a text selection
+- Select "New List in RTM" from the list provided (or type "list")
 
 ### Using Remember the Milk's Smart Add syntax
 
@@ -30,6 +38,7 @@ That's it!
 
 # Updates
 
+- 11-5-09 Added the ability to quick-add a new list to Remember the Milk
 - 10-27-09 Fixed the ability to use tags / lists.  All smart add functions now available!
 - 10-26-09 (a little later in the day) Released again.  Consolidated into true Python plugin.  Speed issue FIXED
 - 10-26-09 - Released.  Updated with newer, fancier Readme file
