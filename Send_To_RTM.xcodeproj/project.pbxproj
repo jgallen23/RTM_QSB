@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B7917E80FA0C395006BFE1E /* Send_To_RTM.py in Resources */ = {isa = PBXBuildFile; fileRef = 8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */; };
+		F80BD7BF10A37B1100294252 /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = F80BD7BE10A37B1100294252 /* milk.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		8B791B3C0FA11711006BFE1E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = QSB/SDK/Templates/QSBPythonPlugin/README.txt; sourceTree = QSBSRCROOT; };
 		8D5B49B6048680CD000E48DA /* Send_To_RTM.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Send_To_RTM.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F80BD7BE10A37B1100294252 /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -36,6 +38,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F80BD7BE10A37B1100294252 /* milk.png */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 			);
 			name = Resources;
@@ -99,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B7917E80FA0C395006BFE1E /* Send_To_RTM.py in Resources */,
+				F80BD7BF10A37B1100294252 /* milk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

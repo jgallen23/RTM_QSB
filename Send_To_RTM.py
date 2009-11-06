@@ -127,11 +127,11 @@ class RTM:
 		method = 'rtm.auth.getFrob'
 
 		the_sig = "%sapi_key%smethod%s" % (api_secret, api_key, method)
-		hashed_sig= createMD5(the_sig)
+		hashed_sig= RTM.createMD5(RTM(), the_sig)
 
 		url = "%smethod=%s&api_key=%s&api_sig=%s" % (api_url, method, api_key, hashed_sig)
 
-		the_frob=ParseURL(RTM(), url, 'frob/')
+		the_frob=RTM.ParseURL(RTM(), url, 'frob/')
 
 		return the_frob
 
@@ -141,17 +141,17 @@ class RTM:
 		
 	def doAuth(self):
 		"""Need to get a frob to be used to obtain a new token"""
-		the_frob=getFrob(RTM())
+		the_frob=RTM.getFrob(RTM())
 
 		"""Get the user to give their auth via the RTM website"""
-		getAuth(RTM(), the_frob)
+		RTM.getAuth(RTM(), the_frob)
 
 		"""sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.	 This needs to be implimented better."""
 		time.sleep(15)
 		"""Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this."""
 
 		"""Start to get the actual token that will be stored in our plist."""
-		the_token=getRemoteToken(RTM(), the_frob)
+		the_token=RTM.getRemoteToken(RTM(), the_frob)
 
 		if the_token != 0:
 			"""Token came back successfully.	Display success message for Dev"""
@@ -160,7 +160,7 @@ class RTM:
 			#print 'Token: '+the_token
 
 			"""Store token in plist"""
-			writePlist(RTM(), the_token)
+			RTM.writePlist(RTM(), the_token)
 			return 1
 		else:
 			"""Token did not come back succesfully Should maybe add some error handling here"""
@@ -174,11 +174,11 @@ class RTM:
 		method = 'rtm.auth.getToken'
 
 		the_sig = "%sapi_key%sfrob%smethod%s" % (api_secret, api_key, the_frob, method)
-		hashed_sig= createMD5(RTM(), the_sig)
+		hashed_sig= RTM.createMD5(RTM(), the_sig)
 
 		url = "%smethod=%s&api_key=%s&frob=%s&api_sig=%s" % (api_url, method, api_key, the_frob, hashed_sig)
 
-		the_token = ParseURL(RTM(), url, 'auth/token/')
+		the_token = RTM.ParseURL(RTM(), url, 'auth/token/')
 		return the_token
 
 
@@ -187,7 +187,7 @@ class RTM:
 		method = 'rtm.auth.getFrob'
 
 		the_sig = "%sapi_key%sfrob%spermswrite" % (api_secret, api_key, the_frob)
-		hashed_sig= createMD5(RTM(), the_sig)
+		hashed_sig= RTM.createMD5(RTM(), the_sig)
 
 		url = "%sapi_key=%s&frob=%s&perms=write&api_sig=%s" % (auth_url, api_key, the_frob, hashed_sig)
 
@@ -290,7 +290,6 @@ class New_Task(object):
 	"""Perform the action"""
 	for result in results:
 		the_task = result[Vermilion.DISPLAY_NAME]
-		
 		#the_task = results
 		
 		def SendTask(new_task):
@@ -347,7 +346,6 @@ class New_List(object):
 	"""Perform the action"""
 	for result in results:
 		the_list = result[Vermilion.DISPLAY_NAME]
-
 		#the_list = results
 
 		def MakeList(the_list):

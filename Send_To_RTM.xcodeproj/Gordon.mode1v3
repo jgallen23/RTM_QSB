@@ -248,8 +248,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -287,12 +285,14 @@
 								<string>089C166AFE841209C02AAC07</string>
 								<string>08FB77AFFE84173DC02AAC07</string>
 								<string>089C167CFE841241C02AAC07</string>
+								<string>1C37FBAC04509CD000000102</string>
+								<string>F80BD84D10A37D3800294252</string>
+								<string>F80BD84E10A37D3800294252</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
 									<integer>4</integer>
 									<integer>0</integer>
 								</array>
@@ -328,6 +328,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -345,10 +347,11 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F890DF6B109655D00073F5DA</string>
+										<string>F80BD85110A37D3800294252</string>
 										<key>history</key>
 										<array>
-											<string>F809BBC510963E3F009CA9A1</string>
+											<string>F80BD84F10A37D3800294252</string>
+											<string>F80BD85010A37D3800294252</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -360,14 +363,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1023, 676}}</string>
+								<string>{{0, 0}, {1023, 671}}</string>
 								<key>RubberWindowFrame</key>
 								<string>235 233 1231 916 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>676pt</string>
+							<string>671pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -380,14 +383,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 681}, {1023, 194}}</string>
+								<string>{{0, 676}, {1023, 199}}</string>
 								<key>RubberWindowFrame</key>
 								<string>235 233 1231 916 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>194pt</string>
+							<string>199pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -406,9 +409,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>F890DF6410964DD70073F5DA</string>
+				<string>F80BD7BB10A379B200294252</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>F890DF6510964DD70073F5DA</string>
+				<string>F80BD7BC10A379B200294252</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -529,7 +532,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>278287824.56750602</real>
+	<real>279149880.083305</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -546,7 +549,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>F809BBBC10963D77009CA9A1</string>
 		<string>/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/Send_To_RTM.xcodeproj</string>
 	</array>
@@ -630,7 +632,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>F809BBBC10963D77009CA9A1</string>
-				<string>F890DF5C10964DD40073F5DA</string>
+				<string>F80BD7BD10A379B200294252</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
