@@ -38,6 +38,7 @@ That's it!
 
 # Updates
 
+- 11-9-09 Added icons for the actions.
 - 11-5-09 Added the ability to quick-add a new list to Remember the Milk
 - 10-27-09 Fixed the ability to use tags / lists.  All smart add functions now available!
 - 10-26-09 (a little later in the day) Released again.  Consolidated into true Python plugin.  Speed issue FIXED
