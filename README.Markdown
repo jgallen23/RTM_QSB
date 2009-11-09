@@ -2,6 +2,12 @@
 
 A <a href="http://code.google.com/p/qsb-mac">Google Quick Search Box</a> plugin to add new tasks to <a href="http://www.rememberthemilk.com">Remember the Milk</a>
 
+#DISCLAIMER
+
+This product uses the Remember The Milk API but is not endorsed or certified by Remember The Milk.
+
+This plugin was NOT developed by the team at Remember the Milk, and they should not be held responsible for any problems you have.
+
 # INSTALL
 - Download the latest version from the <a href="http://www.github.com/gfontenot/RTM_QSB/downloads">Downloads section</a>
 - Mount the DMG
