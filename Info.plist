@@ -21,6 +21,8 @@
 	<key>HGSExtensions</key>
 	<array>
 		<dict>
+			<key>HGSExtensionIconImagePath</key>
+			<string>milk.png</string>
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>
@@ -39,6 +41,8 @@
 			<string>New Task in RTM</string>
 		</dict>
 		<dict>
+			<key>HGSExtensionIconImagePath</key>
+			<string>milk.png</string>
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>

@@ -116,7 +116,7 @@ class RTM:
 
 	
 	def writePlist(self, the_token):
-		"""Function to write to the plist.  Only sets the token for now.	Could add in more parameters later."""
+		"""Function to write to the plist. Only sets the token for now. Could add in more parameters later."""
 		mydict = {}
 		mydict['Token']=the_token
 		NSDictionary.dictionaryWithDictionary_(mydict).writeToFile_atomically_(the_plist, True)
@@ -146,15 +146,15 @@ class RTM:
 		"""Get the user to give their auth via the RTM website"""
 		RTM.getAuth(RTM(), the_frob)
 
-		"""sleep for 30 seconds to allow user to grant auth before proceeding with getting the token.	 This needs to be implimented better."""
+		"""sleep for 15 seconds to allow user to grant auth before proceeding with getting the token. This needs to be implimented better."""
 		time.sleep(15)
-		"""Should have auth by now.  May run into problems where user isn't paying attention, didn't auth.  Again, there may be a better solution for this."""
+		"""Should have auth by now. May run into problems where user isn't paying attention, didn't auth. Again, there may be a better solution for this."""
 
 		"""Start to get the actual token that will be stored in our plist."""
 		the_token=RTM.getRemoteToken(RTM(), the_frob)
 
 		if the_token != 0:
-			"""Token came back successfully.	Display success message for Dev"""
+			"""Token came back successfully. Display success message for Dev"""
 
 			#print 'Sucess'
 			#print 'Token: '+the_token
@@ -327,7 +327,6 @@ class New_Task(object):
 			"""something went wrong. Print a failure message for dev."""
 			return 0
 			#print 'An error occured during the code.  Auth not sucessfull.'
-		
 
 class New_List(object):
   """Send_To_RTM Action
