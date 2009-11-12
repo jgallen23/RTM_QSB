@@ -84,14 +84,17 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 279494074;
-			PBXWorkspaceStateSaveDate = 279494074;
+			PBXPerProjectTemplateStateSaveDate = 279561023;
+			PBXWorkspaceStateSaveDate = 279561023;
 		};
 		perUserProjectItems = {
-			F8765E1610A8BBDA002A6013 = F8765E1610A8BBDA002A6013 /* PBXTextBookmark */;
-			F8765E3110A8BC82002A6013 = F8765E3110A8BC82002A6013 /* PlistBookmark */;
-			F8765E3610A8BCB6002A6013 = F8765E3610A8BCB6002A6013 /* PlistBookmark */;
-			F8765E3E10A8BDCC002A6013 /* PlistBookmark */ = F8765E3E10A8BDCC002A6013 /* PlistBookmark */;
+			F87BCBA410A9CF0600337927 /* PlistBookmark */ = F87BCBA410A9CF0600337927 /* PlistBookmark */;
+			F87BCBA510A9CF0600337927 /* PBXBookmark */ = F87BCBA510A9CF0600337927 /* PBXBookmark */;
+			F87BCBA610A9CF0600337927 /* PBXTextBookmark */ = F87BCBA610A9CF0600337927 /* PBXTextBookmark */;
+			F87BCBA710A9CF0600337927 /* PBXTextBookmark */ = F87BCBA710A9CF0600337927 /* PBXTextBookmark */;
+			F87BCBA910A9CF0600337927 /* PBXTextBookmark */ = F87BCBA910A9CF0600337927 /* PBXTextBookmark */;
+			F87BCBAA10A9CF0600337927 /* PlistBookmark */ = F87BCBAA10A9CF0600337927 /* PlistBookmark */;
+			F87BCBAC10A9CF0600337927 /* PlistBookmark */ = F87BCBAC10A9CF0600337927 /* PlistBookmark */;
 		};
 		sourceControlManager = 7F80FAA30F68E61D00228142 /* Source Control */;
 		userBuildSettings = {
@@ -163,9 +166,16 @@
 	};
 	8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1251, 5200}}";
-			sepNavSelRange = "{8099, 0}";
-			sepNavVisRange = "{7628, 1526}";
+			sepNavIntBoundsRect = "{{0, 0}, {1251, 5239}}";
+			sepNavSelRange = "{11311, 0}";
+			sepNavVisRange = "{9519, 1520}";
+		};
+	};
+	8B791B3C0FA11711006BFE1E /* README.txt */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {962, 624}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1759}";
 		};
 	};
 	8D5B49AC048680CD000E48DA /* Send_To_RTM */ = {
@@ -176,50 +186,91 @@
 			sepNavWindowFrame = "{{217, 71}, {927, 873}}";
 		};
 	};
-	F8765E1610A8BBDA002A6013 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */;
-		name = "Send_To_RTM.py: 292";
-		rLen = 0;
-		rLoc = 8099;
-		rType = 0;
-		vrLen = 1526;
-		vrLoc = 7628;
-	};
-	F8765E3110A8BC82002A6013 /* PlistBookmark */ = {
+	F87BCBA410A9CF0600337927 /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
 		fallbackIsa = PBXBookmark;
 		isK = 0;
 		kPath = (
-		);
-		name = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/Info.plist";
-		rLen = 0;
-		rLoc = 9223372036854775808;
-	};
-	F8765E3610A8BCB6002A6013 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/Info.plist";
-		rLen = 0;
-		rLoc = 9223372036854775808;
-	};
-	F8765E3E10A8BDCC002A6013 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			HGSExtensions,
-			1,
-			HGSPythonModule,
 		);
 		name = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/Info.plist";
 		rLen = 0;
 		rLoc = 9223372036854775807;
+	};
+	F87BCBA510A9CF0600337927 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F87BCB2B10A9C38800337927 /* rtm-cow.png */;
+	};
+	F87BCBA610A9CF0600337927 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8B791B3C0FA11711006BFE1E /* README.txt */;
+		name = "README.txt: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1759;
+		vrLoc = 0;
+	};
+	F87BCBA710A9CF0600337927 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F87BCBA810A9CF0600337927 /* Send_To_RTM.py */;
+		name = "Send_To_RTM.py: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1264;
+		vrLoc = 0;
+	};
+	F87BCBA810A9CF0600337927 /* Send_To_RTM.py */ = {
+		isa = PBXFileReference;
+		name = Send_To_RTM.py;
+		path = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/build/Release/Send_To_RTM.hgs/Contents/Resources/Send_To_RTM.py";
+		sourceTree = "<absolute>";
+	};
+	F87BCBA910A9CF0600337927 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */;
+		name = "Send_To_RTM.py: 401";
+		rLen = 0;
+		rLoc = 11311;
+		rType = 0;
+		vrLen = 1520;
+		vrLoc = 9519;
+	};
+	F87BCBAA10A9CF0600337927 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = F87BCBAB10A9CF0600337927 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleInfoDictionaryVersion,
+		);
+		name = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/build/Release/Send_To_RTM.hgs/Contents/Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F87BCBAB10A9CF0600337927 /* Info.plist */ = {
+		isa = PBXFileReference;
+		name = Info.plist;
+		path = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/build/Release/Send_To_RTM.hgs/Contents/Info.plist";
+		sourceTree = "<absolute>";
+	};
+	F87BCBAC10A9CF0600337927 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = F87BCBAD10A9CF0600337927 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleInfoDictionaryVersion,
+		);
+		name = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/build/Release/Send_To_RTM.hgs/Contents/Info.plist";
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	F87BCBAD10A9CF0600337927 /* Info.plist */ = {
+		isa = PBXFileReference;
+		name = Info.plist;
+		path = "/Users/Gordon/Dropbox/Personal/!!Code/RTM_QSB/build/Release/Send_To_RTM.hgs/Contents/Info.plist";
+		sourceTree = "<absolute>";
 	};
 }

@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.RTM_QSB.${PRODUCT_NAME:identifier}</string>
+	<string>com.Send_To_RTM.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -22,7 +22,7 @@
 	<array>
 		<dict>
 			<key>HGSExtensionIconImagePath</key>
-			<string>milk.png</string>
+			<string>rtm-cow.png</string>
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>
@@ -32,7 +32,7 @@
 			<key>HGSExtensionPoint</key>
 			<string>HGSActionsExtensionPoint</string>
 			<key>HGSExtensionIdentifier</key>
-			<string>com.RTM_QSB.action.New_RTM_Task</string>
+			<string>com.Send_To_RTM.action.New_RTM_Task</string>
 			<key>HGSActionDirectObjectTypes</key>
 			<array>
 				<string>text</string>
@@ -42,7 +42,7 @@
 		</dict>
 		<dict>
 			<key>HGSExtensionIconImagePath</key>
-			<string>milk.png</string>
+			<string>rtm-cow.png</string>
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>
@@ -52,7 +52,7 @@
 			<key>HGSExtensionPoint</key>
 			<string>HGSActionsExtensionPoint</string>
 			<key>HGSExtensionIdentifier</key>
-			<string>com.RTM_QSB.action.New_RTM_List</string>
+			<string>com.Send_To_RTM.action.New_RTM_List</string>
 			<key>HGSActionDirectObjectTypes</key>
 			<array>
 				<string>text</string>

@@ -327,6 +327,7 @@ class New_Task(object):
 			"""something went wrong. Print a failure message for dev."""
 			return 0
 			#print 'An error occured during the code.  Auth not sucessfull.'
+	return True
 
 class New_List(object):
   """Send_To_RTM Action
@@ -380,7 +381,7 @@ class New_List(object):
 			return 0
 			#print 'An error occured during the code.  Auth not sucessfull.'
 
-
+	return True
 
 
 
