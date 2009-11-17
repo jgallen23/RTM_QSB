@@ -44,6 +44,7 @@ That's it!
 
 # Updates
 
+- 11-17-09 Fixed the audible beep after code completion.
 - 11-9-09 Added icons for the actions.
 - 11-5-09 Added the ability to quick-add a new list to Remember the Milk
 - 10-27-09 Fixed the ability to use tags / lists.  All smart add functions now available!
