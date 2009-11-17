@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B7917E80FA0C395006BFE1E /* Send_To_RTM.py in Resources */ = {isa = PBXBuildFile; fileRef = 8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */; };
-		F87BCB2C10A9C38800337927 /* rtm-cow.png in Resources */ = {isa = PBXBuildFile; fileRef = F87BCB2B10A9C38800337927 /* rtm-cow.png */; };
+		F8278DBC10B337A5004B5B5A /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = F8278DBB10B337A5004B5B5A /* milk.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +18,7 @@
 		8B791B3C0FA11711006BFE1E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = QSB/SDK/Templates/QSBPythonPlugin/README.txt; sourceTree = QSBSRCROOT; };
 		8D5B49B6048680CD000E48DA /* Send_To_RTM.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Send_To_RTM.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8278DBB10B337A5004B5B5A /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
 		F87BCB2B10A9C38800337927 /* rtm-cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtm-cow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,6 +41,7 @@
 			children = (
 				F87BCB2B10A9C38800337927 /* rtm-cow.png */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
+				F8278DBB10B337A5004B5B5A /* milk.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -101,8 +103,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8278DBC10B337A5004B5B5A /* milk.png in Resources */,
 				8B7917E80FA0C395006BFE1E /* Send_To_RTM.py in Resources */,
-				F87BCB2C10A9C38800337927 /* rtm-cow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
