@@ -22,7 +22,7 @@
 	<array>
 		<dict>
 			<key>HGSExtensionIconImagePath</key>
-			<string>rtm-cow.png</string>
+			<string>milk.png</string>
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>
@@ -42,7 +42,7 @@
 		</dict>
 		<dict>
 			<key>HGSExtensionIconImagePath</key>
-			<string>rtm-cow.png</string>
+			<string>milk.png</string>
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>
