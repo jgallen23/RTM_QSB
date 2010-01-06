@@ -220,6 +220,10 @@ class RTM:
 		"""Seperate the variable from the file. Used to write the Resp to disk. Used for development."""
 		#the_resp=ET.parse(page)
 		#tree=the_resp.getroot()
+		
+		"""Write the response to the local XML file. Used for Dev only."""	
+		#the_resp.write(xml_resp)
+
 
 		"""Parse the XML"""
 		the_resp=ET.parse(page).getroot()
@@ -228,9 +232,6 @@ class RTM:
 		"""Grab the response message"""	
 		for element in the_resp.findall(ItemNeeded):
 			var = str(element.text)
-
-		"""Write the response to the local XML file. Used for Dev only."""	
-		#the_resp.write(xml_resp)
 
 		return var
 		
@@ -393,7 +394,7 @@ def main():
 	return 1
   argv = " ".join(argv)
   print argv
-  New_List.Perform(New_List(), argv)
+  New_Task.Perform(New_Task(), argv)
 	
 
 if __name__ == '__main__':
