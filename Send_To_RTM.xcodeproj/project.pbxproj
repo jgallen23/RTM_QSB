@@ -15,7 +15,6 @@
 		8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Send_To_RTM.py; sourceTree = "<group>"; };
 		8B7918D00FA0DE60006BFE1E /* QSBDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = QSBDebug.xcconfig; path = QSB/xcconfig/QSBDebug.xcconfig; sourceTree = QSBSRCROOT; };
 		8B7918D10FA0DE60006BFE1E /* QSBRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = QSBRelease.xcconfig; path = QSB/xcconfig/QSBRelease.xcconfig; sourceTree = QSBSRCROOT; };
-		8B791B3C0FA11711006BFE1E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = QSB/SDK/Templates/QSBPythonPlugin/README.txt; sourceTree = QSBSRCROOT; };
 		8D5B49B6048680CD000E48DA /* Send_To_RTM.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Send_To_RTM.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8278DBB10B337A5004B5B5A /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
@@ -26,7 +25,6 @@
 		089C166AFE841209C02AAC07 /* Send_To_RTM */ = {
 			isa = PBXGroup;
 			children = (
-				8B791B3C0FA11711006BFE1E /* README.txt */,
 				8B7918D00FA0DE60006BFE1E /* QSBDebug.xcconfig */,
 				8B7918D10FA0DE60006BFE1E /* QSBRelease.xcconfig */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,

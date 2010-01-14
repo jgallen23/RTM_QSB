@@ -44,13 +44,10 @@ That's it!
 
 # Updates
 
+- 01-14-10 Added a ton of debug code, and implimented a rough Growl notification system via Applescript (for now, I hope)
 - 11-17-09 Fixed the audible beep after code completion.
 - 11-9-09 Added icons for the actions.
 - 11-5-09 Added the ability to quick-add a new list to Remember the Milk
 - 10-27-09 Fixed the ability to use tags / lists.  All smart add functions now available!
 - 10-26-09 (a little later in the day) Released again.  Consolidated into true Python plugin.  Speed issue FIXED
 - 10-26-09 - Released.  Updated with newer, fancier Readme file
-
-# TODO
-
-- Integrate Growl Notifications for successful task posting
