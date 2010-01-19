@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B7917E80FA0C395006BFE1E /* Send_To_RTM.py in Resources */ = {isa = PBXBuildFile; fileRef = 8B7917E70FA0C395006BFE1E /* Send_To_RTM.py */; };
+		C95A41DD110555FA00306E47 /* rtm.png in Resources */ = {isa = PBXBuildFile; fileRef = C95A41DC110555FA00306E47 /* rtm.png */; };
 		F8278DBC10B337A5004B5B5A /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = F8278DBB10B337A5004B5B5A /* milk.png */; };
 /* End PBXBuildFile section */
 
@@ -17,8 +18,8 @@
 		8B7918D10FA0DE60006BFE1E /* QSBRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = QSBRelease.xcconfig; path = QSB/xcconfig/QSBRelease.xcconfig; sourceTree = QSBSRCROOT; };
 		8D5B49B6048680CD000E48DA /* Send_To_RTM.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Send_To_RTM.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95A41DC110555FA00306E47 /* rtm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rtm.png; sourceTree = "<group>"; };
 		F8278DBB10B337A5004B5B5A /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk.png; sourceTree = "<group>"; };
-		F87BCB2B10A9C38800337927 /* rtm-cow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rtm-cow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -37,7 +38,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F87BCB2B10A9C38800337927 /* rtm-cow.png */,
+				C95A41DC110555FA00306E47 /* rtm.png */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				F8278DBB10B337A5004B5B5A /* milk.png */,
 			);
@@ -103,6 +104,7 @@
 			files = (
 				F8278DBC10B337A5004B5B5A /* milk.png in Resources */,
 				8B7917E80FA0C395006BFE1E /* Send_To_RTM.py in Resources */,
+				C95A41DD110555FA00306E47 /* rtm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

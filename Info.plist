@@ -22,7 +22,7 @@
 	<array>
 		<dict>
 			<key>HGSExtensionIconImagePath</key>
-			<string>milk.png</string>
+			<string>rtm.png</string>
 			<key>HGSPythonModule</key>
 			<string>Send_To_RTM</string>
 			<key>HGSPythonClass</key>
@@ -39,26 +39,6 @@
 			</array>
 			<key>HGSExtensionUserVisibleName</key>
 			<string>New Task in RTM</string>
-		</dict>
-		<dict>
-			<key>HGSExtensionIconImagePath</key>
-			<string>milk.png</string>
-			<key>HGSPythonModule</key>
-			<string>Send_To_RTM</string>
-			<key>HGSPythonClass</key>
-			<string>New_List</string>
-			<key>HGSExtensionClass</key>
-			<string>HGSPythonAction</string>
-			<key>HGSExtensionPoint</key>
-			<string>HGSActionsExtensionPoint</string>
-			<key>HGSExtensionIdentifier</key>
-			<string>com.Send_To_RTM.action.New_RTM_List</string>
-			<key>HGSActionDirectObjectTypes</key>
-			<array>
-				<string>text</string>
-			</array>
-			<key>HGSExtensionUserVisibleName</key>
-			<string>New List in RTM</string>
 		</dict>
 	</array>
 </dict>
